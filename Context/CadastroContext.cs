@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVC.Models;
+using System;
+using System.Collections.Generic;
+
 namespace ProjetoMVC.Context
 {
     public class CadastroContext : DbContext
@@ -6,6 +11,6 @@ namespace ProjetoMVC.Context
         {
 
         }
-        public DbSet<Cadastro> Cadastros { get; set; }
+        public DbSet<Pessoa> Pessoas { get; set; }
     }
 }

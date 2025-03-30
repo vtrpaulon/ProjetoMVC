@@ -1,15 +1,13 @@
-using Sistem;
-using Sistem.Linq;
+using System;
 
 namespace ProjetoMVC.Models
 {
-
     public class Pessoa
     {
         public int Id { get; set; }
-        private string nome { get; set; }
-        private string CPF { get; set; }
-        private string RG { get; set; }
-        private Date DataNascimento { get; set; }
+        public string Nome { get; set; }
+        public string CPF { get; set; }
+        public string RG { get; set; }
+        public DateTime DataNascimento { get; set; }
     }
 }
