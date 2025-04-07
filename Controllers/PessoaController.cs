@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoMVC.Context;
+using ProjetoMVC.Models;
 
 namespace ProjetoMVC.Controllers
 {
@@ -19,9 +20,23 @@ namespace ProjetoMVC.Controllers
             var pessoas = _context.Pessoas.ToList();
             return View(pessoas);
         }
+
+        [HttpGet]
         public IActionResult Criar()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Criar(Pessoa pessoa)
+        {
+            if(ModelState.IsValid)
+            {
+                _context.Pessoas.Add(pessoa);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pessoa);
         }
     }
 }
