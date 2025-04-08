@@ -1,0 +1,39 @@
+@model ProjetoMVC.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Detalhes da pessoa";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Nome)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.Nome)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.CPF)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.CPF)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.RG)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.RG)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.DataNascimento)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.DataNascimento)
+        </dt>                        
+    </dl>
+</div>
+
+<a asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
+<a asp-action="Index">Voltar</a>

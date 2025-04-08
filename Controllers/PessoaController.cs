@@ -38,5 +38,41 @@ namespace ProjetoMVC.Controllers
             }
             return View(pessoa);
         }
+
+        public IActionResult Editar(int id)
+        {
+            var pessoa = _context.Pessoas.Find(id);
+            if (pessoa == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pessoa);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Pessoa pessoa)
+        {
+            var pessoabanco = _context.Pessoas.Find(pessoa.Id);
+
+            pessoabanco.Nome = pessoa.Nome;
+            pessoabanco.CPF = pessoa.CPF;
+            pessoabanco.RG = pessoa.RG;
+            pessoabanco.DataNascimento = pessoa.DataNascimento;
+
+            _context.Pessoas.Update(pessoabanco);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+            var pessoa = _context.Pessoas.Find(id);
+            if(pessoa == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pessoa);
+        }
     }
 }
