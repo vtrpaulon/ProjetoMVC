@@ -74,5 +74,26 @@ namespace ProjetoMVC.Controllers
             }
             return View(pessoa);
         }
+
+        public IActionResult Deletar(int id)
+        {
+            var pessoa = _context.Pessoas.Find(id);
+            if(pessoa == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pessoa);
+        }
+
+        [HttpPost]
+        public IActionResult Deletar(Pessoa pessoa)
+        {
+            var pessoabanco = _context.Pessoas.Find(pessoa.Id);
+
+            _context.Pessoas.Remove(pessoabanco);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

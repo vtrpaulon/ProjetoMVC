@@ -1,0 +1,43 @@
+@model ProjetoMVC.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Deletar pessoa";
+}
+
+<h1 style="color: red;">Deseja realmente deletar? Essa acao é irreversivel</h1>
+<hr>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Nome)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.Nome)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.CPF)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.CPF)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.RG)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.RG)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.DataNascimento)
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.DataNascimento)
+        </dt>                        
+    </dl>
+</div>
+
+<form asp-action="Deletar">
+    <input type="submit" value="Deletar" class="btn btn-danger"/>
+</form>>
+<br>
+<a asp-action="Index">Voltar</a>
